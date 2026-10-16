@@ -32,6 +32,18 @@ Run `bash scripts/setup.sh`, then start the API from `backend` with `../.venv/bi
 - Frontend tests: `npm test` from the project root.
 - Frontend production build: `npm run build` from the project root.
 
+## Optional free AI answers via Ollama
+
+The chat can use a free local model through Ollama when it is available on the machine. This is the easiest no-key route for real generated answers.
+
+1. Install Ollama from https://ollama.com/download.
+2. Pull a small model, for example: `ollama pull llama3.2`
+3. Start the Ollama service, then restart the backend. If you want to override the model or endpoint, set:
+   - `OLLAMA_BASE_URL=http://127.0.0.1:11434`
+   - `OLLAMA_MODEL=llama3.2`
+   - `SCHEME_SAATHI_USE_OLLAMA=auto`
+4. If Ollama is not running, the app automatically falls back to the built-in rule-based answers.
+
 ## API endpoints
 
 - `GET /api/health` — health check
